@@ -6,15 +6,18 @@ Simple local communications plugin for node.js applications.
 
 Ears is very simple to use. It listens on your port of choice on localhost for incoming JSON POST requests.
 
-	var ears = require('ears');
-	
-	ears = new Ears({ port: 3333 });
-	ears.on('testMessage', function (message) {
-		console.log(message); // This is my test message!
-	});
-	ears.listen();
-	
+````javascript
+var ears = require('ears');
+
+ears = new Ears({ port: 3333 });
+ears.on('testMessage', function (message) {
+	console.log(message); // This is my test message!
+});
+ears.listen();
+````
+
 	curl localhost:3333 -H 'content-type: application/json' -d '{ "directive": "testMessage", "message": "This is my test message!" }'
+
 
 ## What can it do?
 
