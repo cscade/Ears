@@ -48,14 +48,14 @@ module.exports = {
 		assert.equal(typeof ears.listen, 'function');
 		assert.equal(typeof ears.muffs, 'function');
 	},
-	'listen': function () {
+	'listen and reject GET': function () {
 		var ears = new Ears({ port: 3334, verbose: false });
 		
 		assert.response(ears.server, {
 			url: '/',
 			method: 'GET'
 		}, function (res) {
-			assert.equal(res.statusCode, 404);
+			assert.equal(res.statusCode, 405);
 		});
 	},
 	'muffs': function () {
@@ -78,8 +78,6 @@ module.exports = {
 		
 		ears.on('testMessage', function (message) {
 			assert.equal(message, 'Test Message!');
-			// Stop listening to unwind the stack
-			ears.muffs();
 		});
 		ears.listen(function () {
 			req = http.request({
@@ -90,7 +88,12 @@ module.exports = {
 				headers: {
 					'content-type': 'application/json'
 				}
-			}, function () {});
+			}, function (res) {
+				res.on('end', function () {
+					assert.equal(res.statusCode, 200);
+					ears.muffs();
+				});
+			});
 			req.write(JSON.stringify({
 				directive: 'testMessage',
 				message: 'Test Message!'
@@ -98,7 +101,7 @@ module.exports = {
 			req.end();
 		});	
 	},
-	'bad json handling': function () {
+	'incomplete json handling': function () {
 		var ears = new Ears({ port: 3337, verbose: false }),
 			req;
 		
@@ -106,6 +109,29 @@ module.exports = {
 			req = http.request({
 				host: 'localhost',
 				port: 3337,
+				path: '/',
+				method: 'POST',
+				headers: {
+					'content-type': 'application/json'
+				}
+			}, function (res) {
+				res.on('end', function () {
+					assert.equal(res.statusCode, 400);
+					ears.muffs();
+				});
+			});
+			req.write('{ "directive": "doSomething" }');
+			req.end();
+		});
+	},
+	'bad json handling': function () {
+		var ears = new Ears({ port: 3338, verbose: false }),
+			req;
+		
+		ears.listen(function () {
+			req = http.request({
+				host: 'localhost',
+				port: 3338,
 				path: '/',
 				method: 'POST',
 				headers: {
