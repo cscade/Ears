@@ -13,7 +13,7 @@ Ears is very simple to use. It listens on your port of choice on localhost for i
 ````javascript
 var Ears = require('ears');
 
-ears = new Ears({ port: 3333 });
+ears = new Ears();
 ears.on('testMessage', function (message) {
 	console.log(message); // This is my test message!
 });
