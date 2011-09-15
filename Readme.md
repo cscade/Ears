@@ -20,7 +20,9 @@ ears.on('testMessage', function (message) {
 ears.listen();
 ````
 
-	curl localhost:3333 -H 'content-type: application/json' -d '{ "directive": "testMessage", "message": "This is my test message!" }'
+	$ curl localhost:3333 -H 'content-type: application/json' -d '{ "directive": "testMessage", "message": "This is my test message!" }'
+	ok
+	$
 
 ### Options
 
