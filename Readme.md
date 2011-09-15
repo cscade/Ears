@@ -45,11 +45,12 @@ ears.muffs();		// Stop responding to requests
 ### Response Codes
 
 If you...
-	send a properly formed request with appropriate properties -> 200 OK
-	send a GET request -> 405 Method Not Allowed
-	send a POST request without application/json content type -> 400 Bad Request
-	send a JSON object missing the required properties -> 400 Bad Request
-	send malformed JSON -> 500 Internal Server Error
+
+	send a properly formed request with appropriate properties		-> 200 OK
+	send a GET request												-> 405 Method Not Allowed
+	send a POST request without application/json content type		-> 400 Bad Request
+	send a JSON object missing the required properties				-> 400 Bad Request
+	send malformed JSON												-> 500 Internal Server Error
 
 ## What can it do?
 
