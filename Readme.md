@@ -1,6 +1,10 @@
 # Ears
 
-Simple local communications plugin for node.js applications.
+Simple, dependency-free, local communications plugin for node.js applications. Talk to your running application with JSON.
+
+## Installation
+
+	$ npm install ears
 
 ## Usage
 
