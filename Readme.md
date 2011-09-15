@@ -22,6 +22,23 @@ ears.listen();
 
 	curl localhost:3333 -H 'content-type: application/json' -d '{ "directive": "testMessage", "message": "This is my test message!" }'
 
+### Options
+
+````javascript
+port: [3333],			// Port to listen on
+verbose: [true]/false,	// Send listening messages to stdout
+messages: {				// Responses to requests
+	ok: 'ok\n',
+	nok: 'NOT ok. Make sure to POST content-type: application/json with a "directive" and a "message".\n'
+}
+````
+
+### Methods
+
+````javascript
+ears.listen();		// Start responding to requests
+ears.muffs();		// Stop responding to requests
+````
 
 ## What can it do?
 
