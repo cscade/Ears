@@ -51,6 +51,13 @@ as part of deploy scripts, etc.
 Since it is not specialized to a particular purpose, it can be used anywhere it would be useful to convey messages or data
 via JSON to a node.js application from the local host.
 
+## Test Coverage
+
+Ears has a full test suite written for expresso. `npm install -g expresso` for access to the expresso binary.
+
+	$ npm explore ears
+	$ expresso test/
+
 ## License 
 
 (The MIT License)
