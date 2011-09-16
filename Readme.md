@@ -42,6 +42,8 @@ ears.listen();		// Start responding to requests
 ears.muffs();		// Stop responding to requests
 ````
 
+`listen()` will also happily accept a callback function which will be called when ears is all set up and listening.
+
 ### Response Codes
 
 If you...
