@@ -1,6 +1,6 @@
 # Ears
 
-Simple, dependency-free, local communications plugin for node.js applications. Talk to your running application with JSON.
+Simple local communications plugin for node.js applications. Talk to your running application with JSON.
 
 ## Installation
 
@@ -8,12 +8,12 @@ Simple, dependency-free, local communications plugin for node.js applications. T
 
 ## Usage
 
-Ears is very simple to use. It listens on your port of choice on localhost for incoming JSON POST requests.
+Ears is very simple to use. It listens on your port of choice (or auto-detects a free port above 3999) on localhost for incoming JSON POST requests.
 
 ````javascript
 var Ears = require('ears');
 
-ears = new Ears();
+ears = new Ears({ port: 3333 });
 ears.on('testMessage', function (message) {
 	console.log(message); // This is my test message!
 });
@@ -21,7 +21,7 @@ ears.listen();
 ````
 
 	$ curl localhost:3333 -H 'content-type: application/json' -d '{ "directive": "testMessage", "message": "This is my test message!" }'
-	ok
+	{"ok":true,"message":"ok"}
 	$
 
 ### Options
@@ -30,8 +30,8 @@ ears.listen();
 port: [3333],			// Port to listen on
 verbose: [true]/false,	// Send listening messages to stdout
 messages: {				// Responses to requests
-	ok: 'ok\n',
-	nok: 'NOT ok. Make sure to POST content-type: application/json with a "directive" and a "message".\n'
+	ok: 'ok',
+	nok: 'NOT ok. Make sure to POST content-type: application/json with a "directive" and a "message".'
 }
 ````
 
