@@ -22,7 +22,7 @@ module.exports = {
 		
 		assert.equal(ears.options.verbose, true);
 		assert.strictEqual(ears.stdout, console.log);
-		assert.equal(ears.options.port, 3333);
+		assert.equal(ears.options.port, null);
 		assert.equal(ears.options.messages.ok, 'ok');
 		assert.equal(ears.options.messages.nok, 'NOT ok. Make sure to POST content-type: application/json with a "directive" and a "message".');
 	},
@@ -51,11 +51,22 @@ module.exports = {
 	'listen and reject GET': function () {
 		var ears = new Ears({ port: 3334, verbose: false });
 		
-		assert.response(ears.server, {
-			url: '/',
-			method: 'GET'
-		}, function (res) {
-			assert.equal(res.statusCode, 405);
+		ears.listen(function () {
+			req = http.request({
+				host: 'localhost',
+				port: 3334,
+				path: '/',
+				method: 'GET',
+				headers: {
+					'content-type': 'application/json'
+				}
+			}, function (res) {
+				res.on('end', function () {
+					assert.equal(res.statusCode, 405);
+					ears.muffs();
+				});
+			});
+			req.end();
 		});
 	},
 	'muffs': function () {
