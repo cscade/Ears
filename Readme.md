@@ -27,7 +27,7 @@ ears.listen();
 ### Options
 
 ````javascript
-port: [3333],			// Port to listen on
+port: [null],			// Port to listen on
 verbose: [true]/false,	// Send listening messages to stdout
 messages: {				// Responses to requests
 	ok: 'ok',
