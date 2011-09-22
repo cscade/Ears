@@ -1,4 +1,11 @@
 
+0.1.3 / 9/22/2011
+==================
+
+  * Add setMetadata() method to store arbitrary response data for the application ears is attached to
+  * Add directive: 'autodetect' response type, responds with data about this ears instance and attached application
+  * Responses are now JSON instead of plaintext, response object always contains an 'ok': true/false field
+
 0.1.2 / 9/15/2011
 ==================
 

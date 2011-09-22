@@ -23,8 +23,8 @@ module.exports = {
 		assert.equal(ears.options.verbose, true);
 		assert.strictEqual(ears.stdout, console.log);
 		assert.equal(ears.options.port, 3333);
-		assert.equal(ears.options.messages.ok, 'ok\n');
-		assert.equal(ears.options.messages.nok, 'NOT ok. Make sure to POST content-type: application/json with a "directive" and a "message".\n');
+		assert.equal(ears.options.messages.ok, 'ok');
+		assert.equal(ears.options.messages.nok, 'NOT ok. Make sure to POST content-type: application/json with a "directive" and a "message".');
 	},
 	'custom options': function () {
 		var ears = new Ears({
