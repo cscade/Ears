@@ -1,4 +1,10 @@
 
+0.1.4 / 9/22/2011
+==================
+
+  * Ears will now choose it's own port from ports available if the port option is not specified. 1st port 4000 or above will be used.
+  * Now depends on "portfinder"
+
 0.1.3 / 9/22/2011
 ==================
 
