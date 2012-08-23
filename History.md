@@ -1,3 +1,7 @@
+## 0.2.1 - 2012-08-23
+
+* Updated docs
+
 ## 0.2.0 - 2012-08-23
 
 * Rewrite tests for Mocha

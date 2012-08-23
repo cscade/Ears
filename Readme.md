@@ -1,7 +1,8 @@
-[![build status](https://secure.travis-ci.org/cscade/Ears.png)](http://travis-ci.org/cscade/Ears)
 # Ears
 
 Simple local communications plugin for node.js applications. Talk to your running application with JSON.
+
+[![build status](https://secure.travis-ci.org/cscade/Ears.png)](http://travis-ci.org/cscade/Ears)
 
 ## Installation
 
@@ -9,7 +10,7 @@ Simple local communications plugin for node.js applications. Talk to your runnin
 
 ## Usage
 
-Ears is very simple to use. It listens on your port of choice (or auto-detects a free port above 3999) on localhost for incoming JSON POST requests.
+Ears is very simple to use. It listens on your port of choice (or auto-detects a free port above 3999) on localhost for incoming JSON POST requests. Ears is an EventEmitter, and will emit "message" on every incoming "directive".
 
 ````javascript
 var Ears = require('ears');
@@ -28,7 +29,7 @@ ears.listen();
 ### Options
 
 ````javascript
-port: [null],			// Port to listen on
+port: [null],			// Port to listen on, defaults to first available above 3999
 verbose: [true]/false,	// Send listening messages to stdout
 messages: {				// Responses to requests
 	ok: 'ok',
@@ -66,10 +67,7 @@ via JSON to a node.js application from the local host.
 
 ## Test Coverage
 
-Ears has a full test suite written for expresso. `npm install -g expresso` for access to the expresso binary.
-
-	$ npm explore ears
-	$ expresso test/
+Ears has a full test suite written for mocha. `npm install -g mocha` for access to the binary.
 
 ## License 
 
