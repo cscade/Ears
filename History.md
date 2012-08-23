@@ -1,3 +1,7 @@
+## 0.2.2 - 2012-08-23
+
+* Remove node.js 0.6.x compatibility
+
 ## 0.2.1 - 2012-08-23
 
 * Updated docs
