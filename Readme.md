@@ -52,7 +52,7 @@ If you...
 	send a GET request												-> 405 Method Not Allowed
 	send a POST request without application/json content type		-> 400 Bad Request
 	send a JSON object missing the required properties				-> 400 Bad Request
-	send malformed JSON												-> 500 Internal Server Error
+	send malformed JSON												-> 400 Bad Request
 
 ## What can it do?
 
