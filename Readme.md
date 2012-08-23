@@ -1,4 +1,3 @@
-[![build status](https://secure.travis-ci.org/cscade/Ears.png)](http://travis-ci.org/cscade/Ears)
 # Ears
 
 Simple local communications plugin for node.js applications. Talk to your running application with JSON.
