@@ -15,5 +15,11 @@
 	},
 	"dependencies": {
 		"portfinder": "0.2.x"
+	},
+	"devDependencies": {
+		"mocha": "*"
+	},
+	"scripts": {
+		"test": "mocha test -R spec"
 	}
 }
