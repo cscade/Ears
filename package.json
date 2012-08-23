@@ -1,7 +1,7 @@
 {
     "author": "Carson S. Christian <cc@amplego.com>",
     "name": "ears",
-    "description": "communicate json data and commands to running applications from any local http source",
+    "description": "messaging framework for communicating with running node.js applications over http",
     "keywords": [
         "http",
         "communicate",
