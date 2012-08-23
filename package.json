@@ -1,25 +1,32 @@
 {
-	"author": "Carson S. Christian <cc@amplego.com>",
-	"name": "ears",
-	"description": "communicate json data and commands to running applications from any local http source",
-	"keywords": ["http", "communicate", "local", "listen", "running", "commands"],
-	"homepage": "https://github.com/cscade/Ears",
-	"version": "0.2.0",
-	"repository": {
-		"type": "git",
-		"url": "git://github.com/cscade/Ears.git"
-	},
-	"main": "index",
-	"engines": {
-		"node": "0.4.x"
-	},
-	"dependencies": {
-		"portfinder": "0.2.x"
-	},
-	"devDependencies": {
-		"mocha": "*"
-	},
-	"scripts": {
-		"test": "mocha test -R spec"
-	}
+    "author": "Carson S. Christian <cc@amplego.com>",
+    "name": "ears",
+    "description": "communicate json data and commands to running applications from any local http source",
+    "keywords": [
+        "http",
+        "communicate",
+        "local",
+        "listen",
+        "running",
+        "commands"
+    ],
+    "homepage": "https://github.com/cscade/Ears",
+    "version": "0.2.1",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/cscade/Ears.git"
+    },
+    "main": "index",
+    "engines": {
+        "node": "0.4.x"
+    },
+    "dependencies": {
+        "portfinder": "0.2.x"
+    },
+    "devDependencies": {
+        "mocha": "*"
+    },
+    "scripts": {
+        "test": "mocha test -R spec"
+    }
 }
