@@ -24,7 +24,8 @@
         "portfinder": "0.2.x"
     },
     "devDependencies": {
-        "mocha": "*"
+        "mocha": "*",
+		"winston": "*"
     },
     "scripts": {
         "test": "mocha test -R spec"
