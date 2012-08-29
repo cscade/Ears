@@ -1,3 +1,8 @@
+## 0.3.0 - 2012-08-29
+
+* add configurable listening address
+* default listen on INADDR_ANY
+
 ## 0.2.2 - 2012-08-23
 
 * Remove node.js 0.6.x compatibility
