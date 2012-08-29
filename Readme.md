@@ -1,6 +1,6 @@
 # Ears
 
-Simple communications plugin for node.js applications. Talk to your running application with JSON.
+Simple listening plugin for node.js applications. Send messages to your running application in JSON over http.
 
 [![build status](https://secure.travis-ci.org/cscade/Ears.png)](http://travis-ci.org/cscade/Ears)
 
@@ -10,7 +10,7 @@ Simple communications plugin for node.js applications. Talk to your running appl
 
 ## Usage
 
-Ears is very simple to use. It listens on your port of choice (or auto-detects a free port above 3999) on your address of choice (defaulting to INADDR_ANY) for incoming JSON POST requests. Ears is an EventEmitter, and will emit "message" on every incoming "directive".
+Ears is very simple to use. It listens on your port of choice (or auto-detects a free port above 3999) on your address of choice (defaulting to INADDR_ANY) for incoming JSON POST requests. Ears is an EventEmitter, and will emit "message" on every incoming "directive". Your application can then respond to the event in any way it sees fit.
 
 ````javascript
 var Ears = require('ears');
@@ -28,14 +28,21 @@ ears.listen();
 
 ### Options
 
-````javascript
-port: [null],			// Port to listen on, defaults to first available above 3999
-verbose: [true]/false,	// Send listening messages to stdout
-messages: {				// Responses to requests
-	ok: 'ok',
-	nok: 'NOT ok. Make sure to POST content-type: application/json with a "directive" and a "message".'
-}
-````
+Options are passed on instance creation, i.e. `new Ears([options])`;
+
+`port: [null]`: Port to listen on, defaults to first available above 3999
+
+`verbose: [true]/false`: Talk about listening and incoming requests
+
+`messages.ok`: Response string on ok valid requests
+
+`messages.nok`: Response string on invalid requests
+
+If you are using winston in your application, Ears can log to it rather than stdout:
+
+`winston.logger`: `winston`
+
+`winston.level`: 'info'
 
 ### Methods
 

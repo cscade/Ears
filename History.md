@@ -1,3 +1,10 @@
+## 0.3.1 - 2012-08-29
+
+* support for sending output to winston
+	* includes custom logging level option
+* log incoming valid requests when `verbose: true`
+* include newlines in responses for nicer output with `curl`
+
 ## 0.3.0 - 2012-08-29
 
 * add configurable listening address
