@@ -1,6 +1,6 @@
 # Ears
 
-Simple local communications plugin for node.js applications. Talk to your running application with JSON.
+Simple communications plugin for node.js applications. Talk to your running application with JSON.
 
 [![build status](https://secure.travis-ci.org/cscade/Ears.png)](http://travis-ci.org/cscade/Ears)
 
@@ -10,7 +10,7 @@ Simple local communications plugin for node.js applications. Talk to your runnin
 
 ## Usage
 
-Ears is very simple to use. It listens on your port of choice (or auto-detects a free port above 3999) on localhost for incoming JSON POST requests. Ears is an EventEmitter, and will emit "message" on every incoming "directive".
+Ears is very simple to use. It listens on your port of choice (or auto-detects a free port above 3999) on your address of choice (defaulting to INADDR_ANY) for incoming JSON POST requests. Ears is an EventEmitter, and will emit "message" on every incoming "directive".
 
 ````javascript
 var Ears = require('ears');
@@ -39,12 +39,28 @@ messages: {				// Responses to requests
 
 ### Methods
 
+#### listen([options], [callback])
+
 ````javascript
-ears.listen();		// Start responding to requests
-ears.muffs();		// Stop responding to requests
+// Just listen
+ears.listen();
+
+// Listen with a callback
+ears.listen(function () {});
+
+// Listen on a specific address with a callback
+ears.listen({
+	host: '127.0.0.1' // Defaults to INADDR_ANY (all addresses on host)
+}, function () {});
 ````
 
-`listen()` will also happily accept a callback function which will be called when ears is all set up and listening.
+#### muffs([callback])
+
+````javascript
+// Stop responding to requests, with an optional callback
+ears.muffs();
+ears.muffs(function () {});
+````
 
 ### Response Codes
 
